@@ -8,6 +8,11 @@
     "binding": "AI"
   },
 
+  "assets": {
+    "directory": "./dashboard",
+    "binding": "ASSETS"
+  },
+
   "durable_objects": {
     "bindings": [
       {
