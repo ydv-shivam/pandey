@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pandey AI</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div id="loginScreen" class="screen">
+    <div class="card">
+      <h1>🧠 Pandey</h1>
+      <p>Secure Dashboard</p>
+
+      <input
+        id="passwordInput"
+        type="password"
+        placeholder="Dashboard password"
+        autocomplete="current-password"
+      >
+
+      <button id="loginButton">Login</button>
+
+      <p id="loginStatus"></p>
+    </div>
+  </div>
+
+
+  <div id="chatScreen" class="screen hidden">
+
+    <div class="header">
+      <div>
+        <h1>🧠 Pandey</h1>
+        <span id="status">Connecting...</span>
+      </div>
+
+      <button id="logoutButton">Logout</button>
+    </div>
+
+    <div id="chatBox"></div>
+
+    <div class="inputArea">
+      <input
+        id="messageInput"
+        type="text"
+        placeholder="Ask Pandey something..."
+      >
+
+      <button id="sendButton">Send</button>
+    </div>
+
+  </div>
+
+  <script src="app.js"></script>
+
+</body>
+</html>
