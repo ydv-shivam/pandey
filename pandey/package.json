@@ -1,0 +1,23 @@
+{
+  "name": "pandey",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "deploy": "wrangler deploy",
+    "dev": "wrangler dev",
+    "start": "wrangler dev",
+    "test": "vitest",
+    "cf-typegen": "wrangler types"
+  },
+  "devDependencies": {
+    "@cloudflare/vitest-plugin": "^1.0.0",
+    "@types/node": "^22.20.3",
+    "typescript": "^5.5.2",
+    "vitest": "~4.1.0",
+    "wrangler": "^4.132.0"
+  },
+  "dependencies": {
+    "@cloudflare/ai-utils": "^1.0.1",
+    "openai": "^7.15.0"
+  }
+}
