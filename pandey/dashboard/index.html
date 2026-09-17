@@ -3,55 +3,446 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pandey AI</title>
+  <meta name="theme-color" content="#0b1020">
+  <title>Pandey — Central Intelligence</title>
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-  <div id="loginScreen" class="screen">
-    <div class="card">
-      <h1>🧠 Pandey</h1>
-      <p>Secure Dashboard</p>
+  <!-- LOGIN -->
+  <div id="loginScreen" class="screen login-screen">
+    <div class="login-glow glow-one"></div>
+    <div class="login-glow glow-two"></div>
 
-      <input
-        id="passwordInput"
-        type="password"
-        placeholder="Dashboard password"
-        autocomplete="current-password"
-      >
+    <main class="login-card">
+      <div class="brand-mark">P</div>
 
-      <button id="loginButton">Login</button>
+      <div class="eyebrow">CENTRAL INTELLIGENCE</div>
+      <h1>Pandey</h1>
+      <p class="login-subtitle">
+        Your private cloud AI command center.
+      </p>
 
-      <p id="loginStatus"></p>
-    </div>
+      <form id="loginForm">
+        <label for="passwordInput">Dashboard password</label>
+
+        <div class="password-wrap">
+          <input
+            id="passwordInput"
+            type="password"
+            placeholder="Enter password"
+            autocomplete="current-password"
+          >
+
+          <button
+            type="button"
+            id="togglePassword"
+            class="icon-button"
+            aria-label="Show password"
+          >◉</button>
+        </div>
+
+        <button id="loginButton" class="primary-button" type="submit">
+          <span>Enter Pandey</span>
+          <span class="button-arrow">→</span>
+        </button>
+      </form>
+
+      <p id="loginStatus" class="login-status"></p>
+
+      <div class="login-footer">
+        <span class="status-dot"></span>
+        <span>Cloud connection secured</span>
+      </div>
+    </main>
   </div>
 
 
-  <div id="chatScreen" class="screen hidden">
+  <!-- MAIN APP -->
+  <div id="chatScreen" class="app-shell hidden">
 
-    <div class="header">
-      <div>
-        <h1>🧠 Pandey</h1>
-        <span id="status">Connecting...</span>
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
+
+      <div class="sidebar-top">
+        <div class="brand">
+          <div class="brand-mark small">P</div>
+
+          <div>
+            <strong>Pandey</strong>
+            <span>Central Intelligence</span>
+          </div>
+        </div>
+
+        <button
+          id="closeSidebar"
+          class="mobile-only icon-button"
+          aria-label="Close menu"
+        >×</button>
       </div>
 
-      <button id="logoutButton">Logout</button>
-    </div>
 
-    <div id="chatBox"></div>
+      <nav class="nav">
 
-    <div class="inputArea">
-      <input
-        id="messageInput"
-        type="text"
-        placeholder="Ask Pandey something..."
-      >
+        <button class="nav-item active" data-panel="chat">
+          <span class="nav-icon">⌁</span>
+          <span>Chat</span>
+        </button>
 
-      <button id="sendButton">Send</button>
-    </div>
+        <button class="nav-item" data-panel="files">
+          <span class="nav-icon">□</span>
+          <span>Files</span>
+          <small>Soon</small>
+        </button>
+
+        <button class="nav-item" data-panel="web">
+          <span class="nav-icon">◎</span>
+          <span>Web</span>
+          <small>Soon</small>
+        </button>
+
+        <button class="nav-item" data-panel="devices">
+          <span class="nav-icon">▣</span>
+          <span>Devices</span>
+          <small>Later</small>
+        </button>
+
+        <button class="nav-item" data-panel="google">
+          <span class="nav-icon">G</span>
+          <span>Google</span>
+          <small>Later</small>
+        </button>
+
+      </nav>
+
+
+      <div class="sidebar-card">
+
+        <div class="mini-label">SYSTEM</div>
+
+        <div class="system-row">
+          <span>Cloud</span>
+          <strong id="sidebarCloudStatus">Online</strong>
+        </div>
+
+        <div class="system-row">
+          <span>AI Brain</span>
+          <strong>Ready</strong>
+        </div>
+
+        <div class="system-row">
+          <span>Memory</span>
+          <strong>Active</strong>
+        </div>
+
+      </div>
+
+
+      <div class="sidebar-bottom">
+
+        <button id="settingsButton" class="nav-item">
+          <span class="nav-icon">⚙</span>
+          <span>Settings</span>
+        </button>
+
+        <button id="logoutButton" class="logout-link">
+          <span>↪</span>
+          <span>Log out</span>
+        </button>
+
+      </div>
+
+    </aside>
+
+
+    <div id="sidebarBackdrop" class="sidebar-backdrop hidden"></div>
+
+
+    <!-- MAIN -->
+    <section class="main-area">
+
+      <header class="topbar">
+
+        <div class="topbar-left">
+
+          <button
+            id="openSidebar"
+            class="mobile-only icon-button menu-button"
+            aria-label="Open menu"
+          >☰</button>
+
+          <div>
+            <div class="page-kicker">COMMAND CENTER</div>
+            <h2>Chat with Pandey</h2>
+          </div>
+
+        </div>
+
+
+        <div class="topbar-right">
+
+          <div class="connection-pill">
+            <span class="status-dot"></span>
+            <span id="status">Online</span>
+          </div>
+
+          <div class="avatar">P</div>
+
+        </div>
+
+      </header>
+
+
+      <div class="content-grid">
+
+        <!-- CHAT -->
+        <main class="chat-panel">
+
+          <div id="welcomePanel" class="welcome-panel">
+
+            <div class="welcome-orb">P</div>
+
+            <div class="page-kicker">PRESENT & READY</div>
+
+            <h1>What can I help you with?</h1>
+
+            <p>
+              Pandey is connected to the cloud and ready for your next task.
+            </p>
+
+
+            <div class="suggestions">
+
+              <button
+                class="suggestion"
+                data-prompt="Are you online?"
+              >
+                <span>◉</span>
+
+                <div>
+                  <strong>Check system status</strong>
+                  <small>See whether Pandey is online</small>
+                </div>
+              </button>
+
+
+              <button
+                class="suggestion"
+                data-prompt="Calculate 125 * 48"
+              >
+                <span>∑</span>
+
+                <div>
+                  <strong>Run a calculation</strong>
+                  <small>Use Pandey's calculator tool</small>
+                </div>
+              </button>
+
+
+              <button
+                class="suggestion"
+                data-prompt="Tell me what you can do."
+              >
+                <span>✦</span>
+
+                <div>
+                  <strong>Explore capabilities</strong>
+                  <small>Ask Pandey about its current tools</small>
+                </div>
+              </button>
+
+            </div>
+
+          </div>
+
+
+          <div id="chatBox" class="chat-box" aria-live="polite"></div>
+
+
+          <div id="activityBar" class="activity-bar hidden">
+
+            <span class="activity-spinner"></span>
+
+            <span id="activityText">
+              Pandey is thinking…
+            </span>
+
+          </div>
+
+
+          <div class="composer-wrap">
+
+            <div class="composer">
+
+              <textarea
+                id="messageInput"
+                rows="1"
+                placeholder="Message Pandey…"
+                aria-label="Message Pandey"
+              ></textarea>
+
+              <button
+                id="sendButton"
+                class="send-button"
+                aria-label="Send message"
+              >
+                <span>↑</span>
+              </button>
+
+            </div>
+
+
+            <div class="composer-meta">
+              <span>
+                Enter to send · Shift + Enter for a new line
+              </span>
+
+              <span id="toolIndicator">
+                Cloud AI · Memory active
+              </span>
+            </div>
+
+          </div>
+
+        </main>
+
+
+        <!-- RIGHT PANEL -->
+        <aside class="right-panel">
+
+          <div class="panel-card">
+
+            <div class="panel-heading">
+
+              <div>
+                <div class="page-kicker">LIVE</div>
+                <h3>System status</h3>
+              </div>
+
+              <span class="status-dot large"></span>
+
+            </div>
+
+
+            <div class="status-list">
+
+              <div class="status-item">
+
+                <div class="status-icon">☁</div>
+
+                <div>
+                  <strong>Cloud</strong>
+                  <span>Cloudflare Worker</span>
+                </div>
+
+                <b id="cloudStatus">Online</b>
+
+              </div>
+
+
+              <div class="status-item">
+
+                <div class="status-icon">✦</div>
+
+                <div>
+                  <strong>AI Brain</strong>
+                  <span>Workers AI</span>
+                </div>
+
+                <b>Ready</b>
+
+              </div>
+
+
+              <div class="status-item">
+
+                <div class="status-icon">◫</div>
+
+                <div>
+                  <strong>Memory</strong>
+                  <span>Conversation storage</span>
+                </div>
+
+                <b>Active</b>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div class="panel-card capabilities-card">
+
+            <div class="page-kicker">TOOLS</div>
+
+            <h3>Current capabilities</h3>
+
+
+            <div class="capability">
+              <span>✓</span>
+
+              <div>
+                <strong>Conversation</strong>
+                <small>Persistent conversation memory</small>
+              </div>
+            </div>
+
+
+            <div class="capability">
+              <span>✓</span>
+
+              <div>
+                <strong>Calculator</strong>
+                <small>Arithmetic and expressions</small>
+              </div>
+            </div>
+
+
+            <div class="capability">
+              <span>✓</span>
+
+              <div>
+                <strong>Status</strong>
+                <small>Cloud system health checks</small>
+              </div>
+            </div>
+
+
+            <div class="capability muted">
+              <span>○</span>
+
+              <div>
+                <strong>Web search</strong>
+                <small>Backend connection coming later</small>
+              </div>
+            </div>
+
+          </div>
+
+
+          <div class="panel-card identity-card">
+
+            <div class="identity-mark">P</div>
+
+            <div>
+              <strong>Pandey</strong>
+              <p>Private cloud assistant</p>
+            </div>
+
+          </div>
+
+        </aside>
+
+      </div>
+
+    </section>
 
   </div>
+
+
+  <div id="toast" class="toast hidden"></div>
 
   <script src="app.js"></script>
 
